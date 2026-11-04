@@ -27,9 +27,11 @@ public abstract class Animal{
     // get current date and calculate age
     public double getAge(){
         String[] splitDOB = dateOfBirth.split("-");
-        String currentDate = new Date().toString();
+        Date unformatDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDate = formatter.format(unformatDate);
         String[] splitCurrentDate = currentDate.split("-");
-        double animalAge = Integer.parseInt(splitDOB[0]) - Integer.parseInt(splitCurrentDate[0]);
+        double animalAge = Integer.parseInt(splitCurrentDate[0]) - Integer.parseInt(splitDOB[0]);
         if(Integer.parseInt(splitDOB[1]) <= Integer.parseInt(splitCurrentDate[1])){
             if(Integer.parseInt(splitDOB[2]) < Integer.parseInt(splitCurrentDate[2])){
                 animalAge -= 1;
@@ -38,18 +40,18 @@ public abstract class Animal{
         return animalAge;
     }
 
-    public abstract void makeSound();
+    public abstract String makeSound();
 
-    public void sleep(){
+    public String sleep(){
         SimpleDateFormat dF = new SimpleDateFormat("HH:mm:ss");
         String time = dF.format(new Date());
         String[] splitTime = time.split(":");
         int currentHour = Integer.parseInt(splitTime[0]);
         if((currentHour < 5) || (currentHour > 22)){
-            System.out.println("sleeping");
+            return "sleeping";
         }
         else{
-            System.out.println("awake");
+            return "awake";
         }
     }
 

@@ -1,15 +1,15 @@
-public abstract class Monkey extends Animal{
+public class Monkey extends Animal{
     public Monkey(String name, String dateOfBirth){
         super(name,dateOfBirth);
     }
 
     @Override
-    public void makeSound(){
-        System.out.println("OO OO AH AHH");
+    public String makeSound(){
+        return "OO OO AH AHH";
     }
 
     public String toString(){
-        String out = "Details for a Monkey";
+        String out = String.format("%-10s%-15s%-10s%8.0f  %-10s%-15s",name,"MONKEY",dateOfBirth,getAge(),sleep(),makeSound());
         return out;
     }
 }

@@ -48,9 +48,9 @@ public class Functions{
     }
 
     public static void printReport(ArrayList<Animal> zoo){
-        System.out.printf("%-20s%-20s%-10s%5s%10s%10s","NAME", "SPECIES","DATE OF BIRTH","AGE","SLEEP","SOUND");
+        System.out.printf("%-10s%-15s%-10s  %-5s%-10s%-15s\n","NAME", "SPECIES","DATE OF BIRTH","AGE ","SLEEP","SOUND");
         for(Animal a : zoo){
-            a.toString();
+            System.out.println(a.toString());
         }
     }
 }
